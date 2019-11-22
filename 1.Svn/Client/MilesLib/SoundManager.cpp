@@ -38,9 +38,8 @@ void CSoundManager::MuteSound(bool b)
 	if (b) {
 		for (int i = 0; i < CSoundManagerStream::MUSIC_INSTANCE_MAX_NUM; ++i) {
 			TMusicInstance& rMusicInstance = m_MusicInstances[i];
-			for (const auto& dmiss : { MUSIC_STATE_OFF , MUSIC_STATE_FADE_OUT })
-				if (dmiss == rMusicInstance.MusicState)
-					continue;
+			if (MUSIC_STATE_OFF == rMusicInstance.MusicState || MUSIC_STATE_FADE_OUT == rMusicInstance.MusicState)
+				continue;
 			auto pInstance = ms_SoundManagerStream.GetInstance(i);
 			if (pInstance) m_isMuted ? pInstance->Pause() : pInstance->Resume();
 		}
