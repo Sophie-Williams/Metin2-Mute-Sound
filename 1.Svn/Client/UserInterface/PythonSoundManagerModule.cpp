@@ -1,7 +1,7 @@
 ///Add Method
 PyObject * sndMuteSound(PyObject * poSelf, PyObject * poArgs)
 {
-	CSoundManager::Instance().MuteSound();
+	CSoundManager::Instance().MuteSound(true);
 	return Py_BuildNone();
 }
 
