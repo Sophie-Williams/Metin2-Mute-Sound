@@ -2,7 +2,8 @@
 	float GetSoundScale();
 	
 ///Add
-	void MuteSound(bool b = true);
+	void MuteSound(const bool b);
+	void StopAllSound2D();
 
 //Find
 	float							m_fMusicVolume;
